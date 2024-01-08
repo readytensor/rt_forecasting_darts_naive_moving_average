@@ -1,6 +1,6 @@
 {
   "history_forecast_ratio": null,
-  "K": 12,
+  "input_chunk_length": 10,
   "random_state": 0
   
 }
