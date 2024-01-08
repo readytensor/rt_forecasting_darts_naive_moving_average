@@ -17,13 +17,13 @@ PREDICTOR_FILE_NAME = "predictor.joblib"
 
 
 class Forecaster:
-    """A wrapper class for the NaiveSeasonal Forecaster.
+    """A wrapper class for the NaiveMovingAverage Forecaster.
 
     This class provides a consistent interface that can be used with other
     Forecaster models.
     """
 
-    model_name = "NaiveSeasonal Forecaster"
+    model_name = "NaiveMovingAverage Forecaster"
 
     def __init__(
         self,
@@ -33,7 +33,7 @@ class Forecaster:
         random_state: int = 0,
         **kwargs,
     ):
-        """Construct a new NaiveSeasonal Forecaster
+        """Construct a new NaiveMovingAverage Forecaster
 
         Args:
 
@@ -67,7 +67,7 @@ class Forecaster:
         data_schema: ForecastingSchema,
     ) -> None:
         """Fit the Forecaster to the training data.
-        A separate NaiveSeasonal model is fit to each series that is contained
+        A separate NaiveMovingAverage model is fit to each series that is contained
         in the data.
 
         Args:
@@ -96,7 +96,7 @@ class Forecaster:
         self.data_schema = data_schema
 
     def _fit_on_series(self, history: pd.DataFrame, data_schema: ForecastingSchema):
-        """Fit NaiveSeasonal model to given individual series of data"""
+        """Fit NaiveMovingAverage model to given individual series of data"""
         model = NaiveMovingAverage(input_chunk_length=self.input_chunk_length)
         series = TimeSeries.from_dataframe(
             history, data_schema.time_col, data_schema.target

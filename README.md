@@ -1,6 +1,6 @@
-# Naive Seasonal Forecaster in Darts
+# Naive Moving Average Forecaster in Darts
 
-Naive Seasonal Forecaster for the Forecasting problem category as per Ready Tensor specifications.
+Naive Moving Average Forecaster for the Forecasting problem category as per Ready Tensor specifications.
 
 ## Project Description
 
@@ -28,7 +28,7 @@ Static :x:
 
 Here are the highlights of this implementation: <br/>
 
-- A **Naive Seasonal Forecaster** algorithm built using **Darts**
+- A **Naive Moving Average Forecaster** algorithm built using **Darts**
   Additionally, the implementation contains the following features:
 - **Data Validation**: Pydantic data validation is used for the schema, training and test files, as well as the inference request data.
 - **Error handling and logging**: Python's logging module is used for logging and key functions include exception handling.
