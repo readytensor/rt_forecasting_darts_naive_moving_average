@@ -3,7 +3,6 @@ import warnings
 import joblib
 import numpy as np
 import pandas as pd
-from typing import List, Tuple
 from darts.models import NaiveMovingAverage
 from darts import TimeSeries
 from sklearn.preprocessing import MinMaxScaler
@@ -98,9 +97,7 @@ class Forecaster:
     def _fit_on_series(self, history: pd.DataFrame, data_schema: ForecastingSchema):
         """Fit NaiveMovingAverage model to given individual series of data"""
         model = NaiveMovingAverage(input_chunk_length=self.input_chunk_length)
-        series = TimeSeries.from_dataframe(
-            history, data_schema.time_col, data_schema.target
-        )
+        series = TimeSeries.from_dataframe(history, value_cols=data_schema.target)
         model.fit(series)
         return model
 
