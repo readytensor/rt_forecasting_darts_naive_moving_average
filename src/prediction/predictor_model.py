@@ -48,6 +48,10 @@ class Forecaster:
 
             random_state (int): Sets the underlying random seed at model initialization time.
         """
+
+        if not input_chunk_length:
+            input_chunk_length = data_schema.forecast_length
+
         self.data_schema = data_schema
         self.input_chunk_length = input_chunk_length
         self.random_state = random_state
