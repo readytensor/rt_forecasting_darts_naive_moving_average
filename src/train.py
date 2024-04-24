@@ -10,7 +10,7 @@ from utils import (
     read_csv_in_directory,
     read_json_as_dict,
     set_seeds,
-    TimeAndMemoryTracker,
+    ResourceTracker,
 )
 
 logger = get_logger(task_name="train")
@@ -42,7 +42,7 @@ def run_training(
     """
 
     try:
-        with TimeAndMemoryTracker(logger) as _:
+        with ResourceTracker(logger, monitoring_interval=0.1):
             logger.info("Starting training...")
             # load and save schema
             logger.info("Loading and saving schema...")
@@ -93,7 +93,6 @@ def run_training(
         log_error(message=err_msg, error=exc, error_fpath=paths.TRAIN_ERROR_FILE_PATH)
         # re-raise the error
         raise Exception(f"{err_msg} Error: {str(exc)}") from exc
-
 
 
 if __name__ == "__main__":
