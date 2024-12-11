@@ -1,5 +1,5 @@
 {
-  "history_forecast_ratio": null,
+  "history_forecast_ratio": 15,
   "input_chunk_length": null,
   "random_state": 0
 }
